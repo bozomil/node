@@ -6,8 +6,7 @@ let database;
 
 async function connectToDatabase() {
   const client = await MongoClient.connect(
-    'mongodb://132.226.207.74:2701
-    // 7'
+    'mongodb://admin:password@mongodb'
   );
   database = client.db('auth-blog');
 }
