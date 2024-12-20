@@ -6,7 +6,7 @@ let database;
 
 async function connectToDatabase() {
   const client = await MongoClient.connect(
-    'mongodb://localhost:27017'
+    'mongodb://mongo:27017/docker-node-mongo'
   );
   database = client.db('auth-blog');
 }
