@@ -5,9 +5,7 @@ const MongoClient = mongodb.MongoClient;
 let database;
 
 async function connectToDatabase() {
-  const client = await MongoClient.connect(
-    'mongodb://admin:password@132.226.207.74:27017'
-  );
+  const client = await MongoClient.connect('mongodb://admin:password@mongodb');
   database = client.db('auth-blog');
 }
 

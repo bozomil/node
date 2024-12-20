@@ -13,8 +13,12 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=password
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     volumes:
-      - mongo-data:/data/db
+      - "mongodb_data:/data/db"
+      - "mongodb_config:/data/configdb"
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
   mongo-express:
     image: mongo-express
     restart: always # fixes MongoNetworkError when mongodb is not ready when mongo-express starts
