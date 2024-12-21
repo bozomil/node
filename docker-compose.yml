@@ -15,6 +15,8 @@ services:
       - MONGODB_INITDB_ROOT_PASSWORD=password
     volumes:
       - mongo-data:/data/db
+    user: "root:root"
+    command: chown -R mongodb:mongodb /var/lib/mongodb; chown mongodb:mongodb /tmp/mongodb-27017.sock; sudo service mongod restart
   mongo-express:
     image: mongo-express
     restart: always # fixes MongoNetworkError when mongodb is not ready when mongo-express starts
