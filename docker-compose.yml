@@ -7,7 +7,7 @@ services:
     ports:
       - '3000:3000'
   mongodb:
-    image: mongodb/mongodb-community-server
+    image: mongodb/mongodb-community-server:7.0.2-ubi9
     ports:
       - 27017:27017
     environment:
@@ -15,8 +15,6 @@ services:
       - MONGODB_INITDB_ROOT_PASSWORD=password
     volumes:
       - mongo-data:/data/db
-    #user: "root:root"
-    command: rm -rf /tmp/mongodb-27017.sock; systemctl start mongod
   mongo-express:
     image: mongo-express
     restart: always # fixes MongoNetworkError when mongodb is not ready when mongo-express starts
