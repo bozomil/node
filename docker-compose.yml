@@ -7,7 +7,7 @@ services:
     ports:
       - '3000:3000'
   mongodb:
-    image: mongodb/mongodb-community-server:7.0.2-ubi9
+    image: mongo
     ports:
       - 27017:27017
     environment:
