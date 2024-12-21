@@ -18,5 +18,5 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=pass
     volumes:
       - type: bind
-        source: ./database
+        source: ./data
         target: /data/db
